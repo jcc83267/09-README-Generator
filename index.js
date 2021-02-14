@@ -9,36 +9,71 @@ const questions = [
         type: 'input',
         name: 'username',
         message: 'Enter your Github Username: (Required)',
-    },
-    {
-        type: 'input',
-        name: 'repoName',
-        message: 'Enter your Github Repo Name: (Required)'
+        validate: projectInput => {
+            if (projectInput) {
+                return true;
+            } else {
+                console.log('Please enter your Github username')
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'title',
-        message: 'What is the name of of your project? (Required)'
+        message: 'What is the name of of your project? (Required)',
+        validate: projectInput => {
+            if (projectInput) {
+                return true;
+            } else {
+                console.log('Please enter your name for your project!')
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'description',
-        message: 'Provide a description of your project: (Required)'
+        message: 'Provide a description of your project: (Required)',
+        validate: projectInput => {
+            if (projectInput) {
+                return true;
+            } else {
+                console.log('Please enter your name for your project!')
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'installation',
-        message: 'Describe the steps to install your project : '
+        message: 'Describe the steps to install your project : (Required)',
+        validate: projectInput => {
+            if (projectInput) {
+                return true;
+            } else {
+                console.log('Please enter your name for your project!')
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'Provide instuctions/examples of your project in use: '
+        message: 'Provide instuctions/examples of your project in use: (Required)',
+        validate: projectInput => {
+            if (projectInput) {
+                return true;
+            } else {
+                console.log('Please enter your name for your project!')
+                return false;
+            }
+        }
     },
     {
         type: 'list',
         name: 'license',
-        message: 'What License did this project use? (Check all that apply)',
+        message: 'What License did this project use? (Select One)',
         choices: [
             'Apache 2.0',
             'Boost',
@@ -54,17 +89,41 @@ const questions = [
     {
         type: 'input',
         name: 'contribution',
-        message: 'Provide guidelines on how other developers can contribute to your project.'
+        message: 'Provide guidelines on how other developers can contribute to your project. (Required)',
+        validate: projectInput => {
+            if (projectInput) {
+                return true;
+            } else {
+                console.log('Please enter your name for your project!')
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'tests',
-        message: 'Provide any tests written for your application.'
+        message: 'Provide any tests written for your application.',
+        validate: projectInput => {
+            if (projectInput) {
+                return true;
+            } else {
+                console.log('Please enter your name for your project!')
+                return false;
+            }
+        }
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Enter your Email: '
+        message: 'Enter your Email: (Required)',
+        validate: projectInput => {
+            if (projectInput) {
+                return true;
+            } else {
+                console.log('Please enter your name for your project!')
+                return false;
+            }
+        }
     }
 ];
 
@@ -88,8 +147,8 @@ const init = () => {
 
 // Function call to initialize app
 init()
-    .then(init => {
-        return generateMarkdown(init);
+    .then(data => {
+        return generateMarkdown(data);
     })
     .then(generateMarkdown => {
         return writeToFile('./dist/README.md', generateMarkdown);

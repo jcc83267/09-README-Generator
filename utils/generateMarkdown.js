@@ -52,6 +52,15 @@ const renderLicenseLink = license => {
   }
 }
 
+const completedLicenseBadge = license => {
+  if(license === 'N/A') {
+    return ''
+  } 
+  return `
+[![License](${renderLicenseBadge(license)})](${renderLicenseLink(license)})
+`
+}
+
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 const renderLicenseSection = license => {
@@ -60,9 +69,10 @@ const renderLicenseSection = license => {
   } 
   return `
 ## License
-- ${license}
+${license}  
 `
 }
+
 const renderTableOfContents = license => {
   if(license === 'N/A') {
     return `
@@ -86,24 +96,19 @@ const renderTableOfContents = license => {
 `
 }
 
-
-
 // TODO: Create a function to generate markdown for README
 //function intergrated into the module.export
-
 module.exports = generateMarkdown => {
   console.log(generateMarkdown);
-  //destructure obj
+  //destructure object
   const { license, ...data } = generateMarkdown
-  console.log("license uses: " + license);
-  console.log("data is: " + data.title);
 
   return `
 # ${data.title}
 
-[![License](${renderLicenseBadge(license)})](${renderLicenseLink(license)})
+${completedLicenseBadge(license)}
   
-# Descrition
+## Description
 ${data.description}
   
 ${renderTableOfContents(license)}
@@ -123,7 +128,8 @@ ${data.contribution}
 ${data.tests}
   
 ## Questions
-${data.username}
-${data.email}  
+If you have any Question you can get in touch with me through :  
+GitHub User: ${data.username}  
+Email: ${data.email}  
 `
 };
