@@ -1,14 +1,22 @@
 {
   "name": "static-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "To generate a readme.md file",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "jcc83267",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.3.1"
-  }
+    "inquirer": "^6.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcc83267/09-README-Generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jcc83267/09-README-Generator/issues"
+  },
+  "homepage": "https://github.com/jcc83267/09-README-Generator#readme"
 }
