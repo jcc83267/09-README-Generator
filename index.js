@@ -8,7 +8,7 @@ const questions = [
     {
         type: 'input',
         name: 'username',
-        message: 'Enter your Github Username: (Required)', 
+        message: 'Enter your Github Username: (Required)',
     },
     {
         type: 'input',
@@ -17,7 +17,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'projectName',
+        name: 'title',
         message: 'What is the name of of your project? (Required)'
     },
     {
@@ -40,15 +40,15 @@ const questions = [
         name: 'license',
         message: 'What License did this project use? (Check all that apply)',
         choices: [
-            'Apache',
+            'Apache 2.0',
             'Boost',
+            'GNU AGPL v3',
+            'GNU FDL v1.3',
             'GNU GPL v3',
-            'GNU AGPL v3', 
-            'GNU LGPL v3', 
-            'GNU FDL v1.3', 
-            'ISC', 
-            'MIT', 
-            'Mozilla', 
+            'GNU LGPL v3',
+            'ISC',
+            'MIT',
+            'Mozilla',
             'N/A']
     },
     {
@@ -69,17 +69,28 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeToFile = (fileName, data) => {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            console.log(err)
+            return;
+        }
+        console.log('file created')
+    });
+}
 
 // TODO: Create a function to initialize app
 const init = () => {
-    return inquirer.prompt(     
+    return inquirer.prompt(
         questions
     )
 }
 
 // Function call to initialize app
 init()
-    // .then(init => {
-    //     return generateMarkdown(init)
-    // });
+    .then(init => {
+        return generateMarkdown(init);
+    })
+    .then(generateMarkdown => {
+        return writeToFile('./dist/README.md', generateMarkdown);
+    })
