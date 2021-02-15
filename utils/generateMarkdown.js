@@ -1,8 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-const renderLicenseBadge = license => {
-  console.log("license rest: " + license);
-  
+const renderLicenseBadge = license => { 
   if(license === 'Apache 2.0'){
     return 'https://img.shields.io/badge/License-Apache%202.0-blue.svg';
   } else if(license === 'Boost') {
@@ -52,6 +50,7 @@ const renderLicenseLink = license => {
   }
 }
 
+//used to render badge
 const completedLicenseBadge = license => {
   if(license === 'N/A') {
     return ''
@@ -73,6 +72,7 @@ ${license}
 `
 }
 
+//to render table of contents depending on the license
 const renderTableOfContents = license => {
   if(license === 'N/A') {
     return `
@@ -129,7 +129,7 @@ ${data.tests}
   
 ## Questions
 If you have any Question you can get in touch with me through :  
-GitHub User: ${data.username}  
+GitHub: @${data.username}  
 Email: ${data.email}  
 `
 };

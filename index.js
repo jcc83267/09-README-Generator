@@ -39,7 +39,7 @@ const questions = [
             if (projectInput) {
                 return true;
             } else {
-                console.log('Please enter your name for your project!')
+                console.log('Please enter a description for your project!')
                 return false;
             }
         }
@@ -52,7 +52,7 @@ const questions = [
             if (projectInput) {
                 return true;
             } else {
-                console.log('Please enter your name for your project!')
+                console.log('Please enter a way to install your project.')
                 return false;
             }
         }
@@ -60,15 +60,8 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Provide instuctions/examples of your project in use: (Required)',
-        validate: projectInput => {
-            if (projectInput) {
-                return true;
-            } else {
-                console.log('Please enter your name for your project!')
-                return false;
-            }
-        }
+        message: 'Provide instuctions/examples of your project in use: ',
+        default: 'This project currently does not have any intructions/examples in use.'
     },
     {
         type: 'list',
@@ -90,27 +83,13 @@ const questions = [
         type: 'input',
         name: 'contribution',
         message: 'Provide guidelines on how other developers can contribute to your project. (Required)',
-        validate: projectInput => {
-            if (projectInput) {
-                return true;
-            } else {
-                console.log('Please enter your name for your project!')
-                return false;
-            }
-        }
+        default: 'This project currently does not have ways other developers can contribute to this project.'
     },
     {
         type: 'input',
         name: 'tests',
         message: 'Provide any tests written for your application.',
-        validate: projectInput => {
-            if (projectInput) {
-                return true;
-            } else {
-                console.log('Please enter your name for your project!')
-                return false;
-            }
-        }
+        default: 'This project does not use any tests'
     },
     {
         type: 'input',
@@ -120,7 +99,7 @@ const questions = [
             if (projectInput) {
                 return true;
             } else {
-                console.log('Please enter your name for your project!')
+                console.log('Please enter your email!')
                 return false;
             }
         }
