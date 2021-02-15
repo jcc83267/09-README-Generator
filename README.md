@@ -1,7 +1,7 @@
 # 09-README-Generator
 
 ## Purpose
-To create a professional REAMME based on a series of questions(title, description, installation, usage, contribution, tests, github username, and email). 
+To create a professional README based on a series of questions(title, description, installation, usage, contribution, tests, github username, and email). 
 
 ## Built With
 - Node
