@@ -1,4 +1,3 @@
-
 # 09-README-Generator
 
 
@@ -6,7 +5,7 @@
 
   
 ## Description
-A project to generate a professional README.md file.
+A project to generate a professional README.md file
   
 
 ## Table of Contents
@@ -37,5 +36,5 @@ This project does not use any tests
   
 ## Questions
 If you have any Question you can get in touch with me through :  
-GitHub User: jcc83267  
+GitHub: @jcc83267  
 Email: jamescanlasjr@yahoo.com  
